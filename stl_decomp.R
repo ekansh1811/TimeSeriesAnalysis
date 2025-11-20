@@ -1,0 +1,6 @@
+ts_close <- ts(df$Close, frequency = 390)
+stl_fit <- mstl(ts_close)
+plot(stl_fit)
+summary(stl_fit)
+stl_forecast = forecast(stl_fit, h=12)
+plot(stl_forecast)

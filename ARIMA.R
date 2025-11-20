@@ -1,0 +1,11 @@
+df$Close
+model_arima = auto.arima(df$Close)
+summary(model_arima)
+arima_forecast = forecast(model_arima, h = 12)
+plot(arima_forecast)
+checkresiduals(model_arima)
+jarque.bera.test(model_arima$residuals)
+shapiro.test(model_arima$residuals)
+Box.test(model_arima$residuals, type = "Box-Pierce")
+Box.test(model_arima$residuals, type = "Ljung-Box")
+white.test(model_arima$residuals)
